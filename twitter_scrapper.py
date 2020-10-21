@@ -41,6 +41,7 @@ class TwitterScraper:
 
             # get scroll height
             last_height = self.browser.execute_script("return document.body.scrollHeight")
+            # because all tweets urls containt /{accountname}/status/{tweetid}
             traffic_path = self.browser.find_elements_by_xpath("//a[contains(@href, \"status\")]")
             # get all url links
             traffic_path = [traffic.get_attribute('href') for traffic in traffic_path]
